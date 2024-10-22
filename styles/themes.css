@@ -4,3 +4,73 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+:root.theme-light {
+  --font-family: "Inter-Variable", sans-serif;
+  --second-family: "PressStart2P-Regular", sans-serif;
+  --background_img: repeating-linear-gradient(
+      to right,
+      #d3d3d3 0,
+      #d3d3d3 1px,
+      transparent 2px,
+      transparent 4px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      #d3d3d3 0,
+      #d3d3d3 1px,
+      transparent 2px,
+      transparent 4px
+    ),
+    linear-gradient(to bottom, #e7e7e7 00.01%, #1a1a1a);
+  --background_color: #fff;
+  --accent_color: #000;
+  --button_text_color: #fff;
+  --font_card-weight: 400;
+  --font_title-weight: 700;
+  --text_color:#000;
+  --countur_heart:#000;
+
+}
+
+:root.theme-dark {
+  --font-family: "Inter-Variable", sans-serif;
+  --second-family: "PressStart2P-Regular", sans-serif;
+  --background_img: repeating-linear-gradient(
+    to right,
+    #000 0,
+    #000 1px,
+    transparent 2px,
+    transparent 4px
+  ),
+  repeating-linear-gradient(
+    to bottom,
+    #000 0,
+    #000 1px,
+    transparent 2px,
+    transparent 4px
+  ),
+  linear-gradient(to bottom, #007f0c 00.01%, #004306);
+  --background_color: #000;
+  --accent_color: rgba(0, 204, 20, 1);
+  --button_text_color: rgba(0, 204, 20, 1);
+  --font_card-weight: 465;
+  --font_title-weight: 785;
+  --text_color:#00cc14;
+  --countur_heart:#00cc14;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --font-family: "Inter-Variable", sans-serif;
+    --second-family: "PressStart2P-Regular", sans-serif;
+    --background_img: linear-gradient(180deg, #007f0c 0%, #004306 100%);
+    --background_color: #000;
+    --accent_color: rgba(0, 204, 20, 1);
+    --button_text_color: rgba(0, 204, 20, 1);
+    --font_card-weight: 465;
+    --font_title-weight: 785;
+    --text_color:#00cc14;
+    --countur_heart:#00cc14;
+  }
+}
