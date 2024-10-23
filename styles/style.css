@@ -340,7 +340,7 @@
   cursor: pointer;
 }
 
-.card__icon-button{
+.card__icon-button {
   display: flex;
   background-color: transparent;
   border: none;
@@ -414,7 +414,7 @@
 }
 
 #floppy {
-  color:var(--floppy_color);
+  color: var(--floppy_color);
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
@@ -478,7 +478,7 @@
   opacity: 0.75;
 }
 
-.floppy_dialog{
+.floppy_dialog {
   margin-top: 10px;
   margin-right: 20px;
 }
@@ -490,7 +490,7 @@
 
   .img__label {
     right: 15px;
-    top:26px;
+    top: 26px;
   }
 
   .save__memore {
@@ -498,7 +498,7 @@
     flex-direction: column;
     width: 82%;
     min-height: 81px;
-    margin-block-start:3px;
+    margin-block-start: 3px;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -507,7 +507,7 @@
     margin-block-end: 50px;
   }
 
-  .article__card{
+  .article__card {
     position: relative;
   }
   .article__content {
@@ -540,17 +540,17 @@
     inline-size: 77%;
     min-height: 191px;
   }
-  #floppy{
+  #floppy {
     width: 28px;
     height: 28px;
   }
 
-  #floppy.floppy_dialog{
+  #floppy.floppy_dialog {
     width: 39px;
     height: 39px;
   }
 
-  .dialog[open]{
+  .dialog[open] {
     min-inline-size: 341px;
   }
 }
