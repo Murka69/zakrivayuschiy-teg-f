@@ -26,7 +26,7 @@
   font-family: var(--font-family), sans-serif;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: "wght" 400;
+  font-variation-settings: "wght" var(--font_card-weight), "wdth" 100;
 }
 
 .header {
@@ -62,14 +62,18 @@
 
 .theme-menu__list {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   padding-inline-start: 20px;
 }
 
 .theme-menu__button {
+  position: relative;
   border: none;
   background: transparent;
   text-transform: uppercase;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 .theme-menu__button::before {
@@ -108,6 +112,22 @@
   opacity: 0.6;
 }
 
+.theme-menu__button::after {
+  content: "";
+  position: relative;
+  display: block;
+  background-color: var(--text_color);
+  transition-duration: 0.3s;
+  transform: scaleX(0);
+  transform-origin: left center;
+  block-size: 1px;
+}
+
+.theme-menu__button:focus-visible::after {
+  transition-duration: 0.3s;
+  transform: scaleX(1);
+}
+
 .section {
   display: flex;
   flex-direction: column;
@@ -117,8 +137,8 @@
   display: flex;
   flex-direction: column;
   border: 2px solid var(--accent_color);
-  max-width: 705px;
-  margin-block-end: 41px;
+  max-width: 704px;
+  margin-block-end: 45px;
   background-color: var(--background_color);
   position: relative;
 }
@@ -142,14 +162,15 @@
   font-weight: 700;
   font-size: 1.125rem;
   padding-inline: 10px;
+  padding-block-start: 3px;
   block-size: 31px;
-  font-variation-settings: "wght" 700;
+  font-variation-settings: "wght" var(--font_title-weight);
 }
 
 .card__text-container {
   font-size: 1.125rem;
   padding-inline-start: 27px;
-  padding-top: 18px;
+  padding-top: 27px;
 }
 
 .article__card {
@@ -163,10 +184,11 @@
   inline-size: 98%;
   color: var(--text_color);
   margin-block: 0 27px;
+  font-variation-settings: "wght" var(--font_card-weight), "wdth" 100;
 }
 
 .memore {
-  margin-block-end: 25px;
+  margin-block-start: 25px;
 }
 
 .img__label {
@@ -205,11 +227,11 @@
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
   transform: scaleX(0);
-  transform-origin: left center;
+  transform-origin: left;
 }
 
 .button:hover::after {
-  transform: scale(1);
+  transform: scaleX(1);
 }
 
 .button:focus {
@@ -224,8 +246,11 @@
 .button__heart {
   display: flex;
   justify-content: flex-end;
-  gap: 4px;
-  padding-block-end: 12px;
+  gap: 7px;
+}
+
+.hearts {
+  padding-block-start: 20px;
 }
 
 .main-body {
@@ -236,13 +261,16 @@
 
 .contour {
   fill: var(--countur_heart);
-  transition-duration: 0.2s;
 }
 
 .core {
   fill: transparent;
   transition-duration: 0.3s;
-  transition-delay: 0.05s;
+  transition-delay: 0.03s;
+}
+
+.sparks {
+  opacity: 0;
 }
 
 .like-icon {
@@ -250,9 +278,29 @@
   height: 36px;
 }
 
-.like-icon.is-liked .contour {
+.like-icon:hover .core {
+  fill: var(--countur_heart);
+  transition-duration: 0.3s;
+}
+
+.like-icon:active .core {
   fill: var(--heart_color);
+  transition-duration: 0.3s;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--countur_heart);
+  transition-duration: 0.3s;
   transition-delay: 0.05s;
+}
+
+.like-icon:active .main-body {
+  fill: var(--heart_color);
+  transition-duration: 0.3s;
+}
+.like-icon.is-liked .core {
+  fill: var(--heart_color);
+  transition-delay: 0s;
   transition-duration: 0.3s;
 }
 
@@ -262,10 +310,10 @@
   transition-duration: 0.3s;
 }
 
-.like-icon.is-liked .core {
+.like-icon.is-liked .contour {
   fill: var(--heart_color);
+  transition-delay: 0.06s;
   transition-duration: 0.3s;
-  transition-delay: 0s;
 }
 
 .like-icon.is-liked .sparks {
@@ -273,29 +321,6 @@
   animation-delay: 0.3s;
   animation-duration: 0.3s;
   animation-timing-function: ease-in;
-}
-
-.like-icon:hover .core {
-  fill: var(--countur_heart);
-  transition-duration: 0.3s;
-  transition-delay: 0.03s;
-}
-
-.like-icon:active .main-body {
-  fill: var(--heart_color);
-  transition-duration: 0.3s;
-  transition-delay: 0.05s;
-}
-
-.like-icon:hover .main-body {
-  fill: var(--countur_heart);
-  transition-duration: 0.3s;
-  transition-delay: 0.05s;
-}
-
-.like-icon:active .core {
-  fill: var(--heart_color);
-  transition-duration: 0.3s;
 }
 
 .is-liked .heart {
@@ -315,15 +340,21 @@
   cursor: pointer;
 }
 
-.card__button-like {
+.card__icon-button{
+  display: flex;
   background-color: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
 }
 
-.card__button-like:focus {
+.card__icon-button:focus {
   outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--accent_color);
+  transition-duration: 0.3s;
 }
 
 .card__like-button {
@@ -331,52 +362,59 @@
   border: 2px solid var(--accent_color);
   inline-size: 130px;
   block-size: 38px;
-  margin-right: 31px;
+  margin-right: 27px;
   background-color: var(--background_color);
+  margin-bottom: -1px;
 }
 .button__text {
+  position: relative;
+  z-index: 10;
+  mix-blend-mode: difference;
+  color: var(--button_text_color);
   font-family: var(--second-family), sans-serif;
   font-size: 14px;
 }
 
-.white__list {
-  filter: grayscale(50%);
+.filter-grayscale {
+  filter: var(--filter-grayscale);
 }
 
-.question {
-  filter: saturate(360%);
+.filter-saturate {
+  filter: var(--filter-saturate);
 }
-.race {
-  filter: hue-rotate(30deg);
-}
-
-.friend {
-  filter: invert(80%);
+.filter-hue-rotate {
+  filter: var(--filter-hue-rotate);
 }
 
-.fear {
-  filter: blur(20px);
+.filter-invert {
+  filter: var(--filter-invert);
 }
 
-.strategies {
-  filter: sepia(80%);
+.filter-blur {
+  filter: var(--filter-blur);
 }
 
-.here {
-  filter: saturate(250%) hue-rotate(90deg) grayscale(20%) invert(25%) blur(2px);
+.filter-sepia {
+  filter: var(--filter-sepia);
+}
+
+.filter-mix {
+  filter: var(--filter-mix);
 }
 
 .article__content {
-  margin-block-start: 28px;
-  margin-block-end: 48px;
+  margin-block-start: 8px;
+  margin-block-end: 38px;
 }
 
-.footer {
+.container__save {
   display: flex;
   justify-content: center;
+  margin-block-end: 103px;
 }
 
-.floppy.save__memore {
+#floppy {
+  color:var(--floppy_color);
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
@@ -387,16 +425,20 @@
   justify-content: space-around;
   inline-size: 23%;
   min-height: 55px;
-  margin-block-start: -10px;
+  margin-block-start: 10px;
   position: relative;
   cursor: pointer;
   background-color: var(--background_color);
   border: 2px solid var(--text_color);
 }
 
-.dialog {
-  block-size: 19%;
-  inline-size: 19%;
+.dialog[open] {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 30px;
+  column-gap: 12px;
+  row-gap: 30px;
+  inline-size: 23%;
   background-color: var(--background_color);
   border: 2px solid var(--accent_color);
 }
@@ -404,7 +446,6 @@
 .dialog__form {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 20px;
   row-gap: 30px;
 }
 
@@ -428,6 +469,18 @@
   grid-column: 1/3;
   background-color: var(--background_color);
   border: 2px solid var(--accent_color);
+  min-height: 38px;
+}
+
+.dialog::backdrop {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: #000;
+  opacity: 0.75;
+}
+
+.floppy_dialog{
+  margin-top: 10px;
+  margin-right: 20px;
 }
 
 @media (width <= 376px) {
@@ -435,32 +488,69 @@
     block-size: 100%;
   }
 
+  .img__label {
+    right: 15px;
+    top:26px;
+  }
+
   .save__memore {
     display: flex;
     flex-direction: column;
     width: 82%;
-    min-height: 82px;
+    min-height: 81px;
+    margin-block-start:3px;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
   .article {
-    margin-block-end: 38px;
+    margin-block-end: 50px;
   }
 
+  .article__card{
+    position: relative;
+  }
   .article__content {
-    margin-block-start: -15px;
-    margin-block-end: 45px;
+    margin-block-start: -1px;
+    margin-block-end: 49px;
   }
 
   .card__text-container {
     padding-top: 33px;
+    padding-inline-start: 24px;
   }
 
   .card__text {
     inline-size: 92%;
+    max-inline-size: 375px;
+  }
+
+  .memore {
+    margin-block-start: 10px;
+  }
+
+  .hearts {
+    padding-block-start: 0px;
+  }
+  .card__like-button {
+    margin-top: -1px;
   }
 
   .dialog {
-    block-size: 26%;
     inline-size: 77%;
+    min-height: 191px;
+  }
+  #floppy{
+    width: 28px;
+    height: 28px;
+  }
+
+  #floppy.floppy_dialog{
+    width: 39px;
+    height: 39px;
+  }
+
+  .dialog[open]{
+    min-inline-size: 341px;
   }
 }

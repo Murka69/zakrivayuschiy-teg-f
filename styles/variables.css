@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
   --font-family: "Inter-Variable", sans-serif;
-  --second-family: "PressStart2P-Regular", sans-serif;
+  --second-family: "PressStart2P", sans-serif;
   --background_img: repeating-linear-gradient(
       to right,
       #d3d3d3 0,
@@ -25,5 +25,13 @@
   --text_color:#000;
   --heart_color:#ff0000;
   --countur_heart:#000;
+  --floppy_color:#fff;
   --floppy_size:21px;
+  --filter-grayscale:grayscale(50%);
+  --filter-saturate: saturate(360%);
+  --filter-hue-rotate: hue-rotate(30deg);
+  --filter-invert:invert(80%);
+  --filter-blur:blur(20px);
+  --filter-sepia:sepia(80%);
+  --filter-mix: saturate(250%) hue-rotate(90deg) grayscale(20%) invert(25%) blur(2px);
 }
