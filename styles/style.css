@@ -103,8 +103,6 @@
 
 .theme-menu__button:hover {
   opacity: 0.6;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
 }
 
 .theme-menu__button:focus {
@@ -217,6 +215,7 @@
   border: 2px solid var(--background_color);
   background-color: var(--background_color);
   cursor: pointer;
+  transition-duration: 0.3s;
 }
 
 .button::after {
@@ -240,7 +239,6 @@
 
 .button:focus-visible {
   box-shadow: 2px 2px 0 0 var(--text_color);
-  transition-duration: 0.3s;
 }
 
 .button__heart {
@@ -297,6 +295,7 @@
 .like-icon:active .main-body {
   fill: var(--heart_color);
   transition-duration: 0.3s;
+  transition-delay: 0.05s;
 }
 .like-icon.is-liked .core {
   fill: var(--heart_color);
@@ -438,7 +437,7 @@
   padding: 30px;
   column-gap: 12px;
   row-gap: 30px;
-  inline-size: 23%;
+  inline-size: 24%;
   background-color: var(--background_color);
   border: 2px solid var(--accent_color);
 }
@@ -536,10 +535,10 @@
     margin-top: -1px;
   }
 
-  .dialog {
+  .dialog[open] {
     inline-size: 77%;
-    min-height: 191px;
   }
+
   #floppy {
     width: 28px;
     height: 28px;
