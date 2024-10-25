@@ -418,8 +418,8 @@
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
-  block-size:var(--floppy_size) ;
-  inline-size:var(--floppy_size);
+  block-size: var(--floppy_size);
+  inline-size: var(--floppy_size);
 }
 
 .save__memore {
@@ -447,12 +447,11 @@
 .dialog__form {
   display: grid;
   grid-template-columns: auto auto;
-  column-gap:clamp(12px,20px,20px);
+  column-gap: clamp(12px, 20px, 20px);
   row-gap: 30px;
-  
 }
 
-.floppy_dialog{
+.floppy_dialog {
   z-index: 1;
   block-size: 39px;
   inline-size: 39px;
@@ -479,7 +478,6 @@
   background: #000;
   opacity: 0.75;
 }
-
 
 @media (width <= 376px) {
   .article__title {
@@ -535,11 +533,10 @@
   }
 
   .dialog[open] {
-    inline-size:100%;
+    inline-size: 100%;
   }
 
   .floppy {
-    --floppy_size:28px;
+    --floppy_size: 28px;
   }
-
 }
