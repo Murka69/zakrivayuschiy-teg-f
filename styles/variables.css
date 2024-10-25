@@ -35,4 +35,5 @@
   --filter-sepia: sepia(80%);
   --filter-mix: saturate(250%) hue-rotate(90deg) grayscale(20%) invert(25%)
     blur(2px);
+  --floppy-size:21px;
 }

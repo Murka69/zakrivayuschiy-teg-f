@@ -74,6 +74,7 @@
   cursor: pointer;
   transition-duration: 0.3s;
   transition-timing-function: ease;
+  font-size: 14px;
 }
 
 .theme-menu__button::before {
@@ -412,12 +413,15 @@
   margin-block-end: 103px;
 }
 
-#floppy {
+.floppy {
   color: var(--floppy_color);
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
+  block-size:var(--floppy_size) ;
+  inline-size:var(--floppy_size);
 }
+
 .save__memore {
   display: flex;
   align-items: center;
@@ -435,8 +439,6 @@
   display: grid;
   grid-template-columns: auto auto;
   padding: 30px;
-  column-gap: 12px;
-  row-gap: 30px;
   inline-size: 24%;
   background-color: var(--background_color);
   border: 2px solid var(--accent_color);
@@ -445,15 +447,16 @@
 .dialog__form {
   display: grid;
   grid-template-columns: auto auto;
+  column-gap:clamp(12px,20px,20px);
   row-gap: 30px;
+  
 }
 
-.dialog__img {
+.floppy_dialog{
   z-index: 1;
   block-size: 39px;
   inline-size: 39px;
   margin-block-start: 10px;
-  color: var(--text_color);
 }
 
 .dialog__text {
@@ -477,10 +480,6 @@
   opacity: 0.75;
 }
 
-.floppy_dialog {
-  margin-top: 10px;
-  margin-right: 20px;
-}
 
 @media (width <= 376px) {
   .article__title {
@@ -536,20 +535,11 @@
   }
 
   .dialog[open] {
-    inline-size: 77%;
+    inline-size:100%;
   }
 
-  #floppy {
-    width: 28px;
-    height: 28px;
+  .floppy {
+    --floppy_size:28px;
   }
 
-  #floppy.floppy_dialog {
-    width: 39px;
-    height: 39px;
-  }
-
-  .dialog[open] {
-    min-inline-size: 341px;
-  }
 }
